@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'DM Sans Variable', sans-serif;
+  --font-display: 'Space Grotesk Variable', sans-serif;
+}
+:root { color-scheme: dark; --bg: #090e18; --sidebar: #0a0e19; --surface: #111725; --surface-2: #151d2d;
+  --border: #263044; --muted: #8994a9; --text: #eef2fa; --accent: #9b8cff; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+::selection { background: #8d7afe77; color: #fff; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #333e54; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+:focus-visible { outline: 2px solid #a799ff; outline-offset: 2px; }
+.forge-surface { background: var(--surface); border: 1px solid var(--border); box-shadow: 0 14px 40px #0306111a; }
+.forge-surface-hover { transition: border-color .2s, transform .2s, background .2s, box-shadow .2s; }
+.forge-surface-hover:hover { border-color: #475172; background: #151c2c; transform: translateY(-2px); box-shadow: 0 16px 36px #02040d35; }
+.forge-input { border-radius: 10px; border: 1px solid #344057; background: #101726;
+  color: #f1f4fb; outline: none; transition: border-color .2s, box-shadow .2s; }
+.forge-input::placeholder { color: #627087; }
+.forge-input:focus { border-color: #9585ec; box-shadow: 0 0 0 3px #9b8cff20; }
+.forge-input:disabled { opacity: .55; }
+.forge-input[aria-invalid="true"] { border-color: #ed8d98; }
+.forge-btn-primary { background: #9a8bfa; color: #101025; border: 1px solid #b3a9ff; box-shadow: 0 5px 18px #7964ed29; }
+.forge-btn-primary:hover:not(:disabled) { background: #b3a7ff; box-shadow: 0 6px 22px #7964ed4a; transform: translateY(-1px); }
+.forge-btn-secondary { background: #1b2333; color: #e6eaf4; border: 1px solid #344056; }
+.forge-btn-secondary:hover:not(:disabled) { background: #252f44; border-color: #59657c; }
+.forge-btn-ghost { background: transparent; color: #9da8bc; border: 1px solid transparent; }
+.forge-btn-ghost:hover:not(:disabled) { background: #ffffff0b; color: #f1f4fc; }
+.forge-btn-danger { background: #3d1c2b; color: #ffa1ac; border: 1px solid #7f354b; }
+.forge-btn-danger:hover:not(:disabled) { background: #522535; }
+.forge-grid { background-image: linear-gradient(#b0a4ff08 1px, transparent 1px), linear-gradient(90deg, #b0a4ff08 1px, transparent 1px); background-size: 38px 38px; }
+.forge-gradient-text { background: linear-gradient(110deg, #f6f5ff 15%, #c1b7ff 76%, #90dcdf); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.forge-noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E"); }
+.forge-toast { background: #171e2e !important; border: 1px solid #364258 !important; color: #f4f5fc !important; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.animate-rise { animation: rise .42s cubic-bezier(.21,.82,.32,1) both; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(-8deg) } 50% { transform: translateY(-11px) rotate(-5deg) } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+@keyframes pulse-soft { 0%,100% { opacity:.5 } 50% { opacity:1 } }
+.animate-pulse-soft { animation: pulse-soft 2.5s ease-in-out infinite; }
+/* Status indicator rings */
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 100%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 17%, transparent); }
+/* Hide native number spinner for clean forms */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
