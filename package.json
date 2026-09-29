@@ -1,0 +1,32 @@
+{
+  "name": "nexusforge",
+  "private": true,
+  "version": "0.1.0",
+  "description": "NexusForge — intelligent cloud-native web engineering platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w @nexusforge/api\" \"npm run dev -w @nexusforge/web\"",
+    "build": "npm run build -w @nexusforge/types && npm run build -w @nexusforge/api && npm run build -w @nexusforge/web",
+    "typecheck": "npm run build -w @nexusforge/types && npm run typecheck -w @nexusforge/api && npm run typecheck -w @nexusforge/web",
+    "test": "npm run test -w @nexusforge/api",
+    "db:generate": "npm run prisma:generate -w @nexusforge/api",
+    "db:migrate": "npm run prisma:deploy -w @nexusforge/api",
+    "db:seed": "npm run prisma:seed -w @nexusforge/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "deepmerge-ts": "8.0.2",
+    "mysql2": "3.24.4",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "deepmerge-ts": "8.0.2",
+    "mysql2": "3.24.4"
+  }
+}
